@@ -14,8 +14,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 //   .then((response) => console.log(response))
 //   .catch((err) => console.error(err));
 
+// createApi: 데이터를 패치하고 변환하는 설정을 포함해서 엔드포인트들에서 어떻게 데이터를 패치하는지 정의
 export const shazamCoreApi = createApi({
-  reducerPath: 'shazamCoreApi',
+  reducerPath: 'shazamCoreApi', // 리듀서 이름
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://shazam-core.p.rapidapi.com/v1',
     prepareHeaders: (headers) => {
@@ -26,6 +27,8 @@ export const shazamCoreApi = createApi({
       return headers;
     },
   }),
+  // getTopCharts: 요청이름
+  // query: (genre) (주소에 넘길 값) => `api주소값/(주소에 넘길 값)`
   endpoints: (builder) => ({
     getTopCharts: builder.query({ query: () => '/charts/world' }),
     getSongsByGenre: builder.query({
@@ -50,6 +53,7 @@ export const shazamCoreApi = createApi({
   }),
 });
 
+// use요청이름Query
 export const {
   useGetTopChartsQuery,
   useGetSongsByGenreQuery,
@@ -59,3 +63,6 @@ export const {
   useGetSongByCountryQuery,
   useGetSongsBySearchQuery,
 } = shazamCoreApi;
+
+// 요청을 명시할 때 builder.query 라고 작성하게 되면, get 요청을 보낼 수 있게됨
+// builder.mutation 이라고 작성하면, post 혹은 put 요청 등을 보낼 수 있음
