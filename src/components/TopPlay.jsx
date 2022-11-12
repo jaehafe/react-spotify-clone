@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,14 +11,13 @@ import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { Link } from 'react-router-dom';
 
 const TopChartCard = ({
   song,
   i,
   isPlaying,
   activeSong,
-  handlePauseClck,
+  handlePauseClick,
   handlePlayClick,
 }) => (
   <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
@@ -43,7 +43,7 @@ const TopChartCard = ({
       isPlaying={isPlaying}
       activeSong={activeSong}
       song={song}
-      handlePause={handlePauseClck}
+      handlePause={handlePauseClick}
       handlePlay={handlePlayClick}
     />
   </div>
@@ -61,7 +61,7 @@ const TopPlay = () => {
 
   const topPlays = data?.slice(0, 10);
 
-  const handlePauseClck = () => {
+  const handlePauseClick = () => {
     dispatch(playPause(false));
   };
 
@@ -90,7 +90,7 @@ const TopPlay = () => {
               i={i}
               isPlaying={isPlaying}
               activeSong={activeSong}
-              handlePauseClck={handlePauseClck}
+              handlePauseClick={handlePauseClick}
               handlePlayClick={() => handlePlayClick(song, i)}
             />
           ))}

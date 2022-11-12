@@ -4,7 +4,7 @@ const RelatedSongs = ({
   data,
   isPlaying,
   activeSong,
-  handlePauseClck,
+  handlePauseClick,
   handlePlayClick,
   artistId,
 }) => (
@@ -20,7 +20,7 @@ const RelatedSongs = ({
           artistId={artistId}
           activeSong={activeSong}
           isPlaying={isPlaying}
-          handlePauseClick={handlePauseClck}
+          handlePauseClick={handlePauseClick}
           handlePlayClick={handlePlayClick}
         />
       ))}
