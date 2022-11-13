@@ -13,6 +13,7 @@ import Track from './Track';
 import VolumeBar from './VolumeBar';
 
 const MusicPlayer = () => {
+  // eslint-disable-next-line operator-linebreak
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
     useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
