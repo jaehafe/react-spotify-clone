@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // const options = {
 //   method: 'GET',
 //   headers: {
-//     'X-RapidAPI-Key': '9d4179990amsh836d9e96d94ecd6p17c26djsncbab1af179e1',
+//     'X-RapidAPI-Key': '',
 //     'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com',
 //   },
 // };
