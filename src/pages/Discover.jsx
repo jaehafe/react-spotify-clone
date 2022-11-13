@@ -13,6 +13,7 @@ const Discover = () => {
   const { data, isFetching, error } = useGetSongsByGenreQuery(
     genreListId || 'POP'
   );
+
   console.log(data);
 
   if (isFetching) return <Loader title="Loading songs..." />;

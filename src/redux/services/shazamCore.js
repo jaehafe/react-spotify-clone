@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // const options = {
 //   method: 'GET',
 //   headers: {
-//     'X-RapidAPI-Key': '022e12f468msh1fe2768998873dbp113ba4jsn74c05d00c083',
+//     'X-RapidAPI-Key': '9d4179990amsh836d9e96d94ecd6p17c26djsncbab1af179e1',
 //     'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com',
 //   },
 // };
@@ -14,21 +14,23 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 //   .then((response) => console.log(response))
 //   .catch((err) => console.error(err));
 
-// createApi: 데이터를 패치하고 변환하는 설정을 포함해서 엔드포인트들에서 어떻게 데이터를 패치하는지 정의
 export const shazamCoreApi = createApi({
+  // createApi: 데이터를 패치하고 변환하는 설정을 포함해서 엔드포인트들에서 어떻게 데이터를 패치하는지 정의
   reducerPath: 'shazamCoreApi', // 리듀서 이름
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://shazam-core.p.rapidapi.com/v1',
     prepareHeaders: (headers) => {
       headers.set(
         'X-RapidAPI-Key',
+        // eslint-disable-next-line comma-dangle
         import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY
       );
       return headers;
     },
   }),
+
   // getTopCharts: 요청이름
-  // query: (genre) (주소에 넘길 값) => `api주소값/(주소에 넘길 값)`
+  // query: (genre) / (주소에 넘길 값) => `api주소값/(주소에 넘길 값)`
   endpoints: (builder) => ({
     getTopCharts: builder.query({ query: () => '/charts/world' }),
     getSongsByGenre: builder.query({
@@ -48,6 +50,7 @@ export const shazamCoreApi = createApi({
     }),
     getSongsBySearch: builder.query({
       query: (searchTerm) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
         `/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
     }),
   }),
