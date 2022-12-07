@@ -30,7 +30,8 @@ export const shazamCoreApi = createApi({
   }),
 
   // getTopCharts: 요청이름
-  // query: (genre) / (주소에 넘길 값) => `api주소값/(주소에 넘길 값)`
+  // query: (genre) =>
+  // query: (주소에 넘길 값) => `api주소값/(주소에 넘길 값)`
   endpoints: (builder) => ({
     getTopCharts: builder.query({ query: () => '/charts/world' }),
     getSongsByGenre: builder.query({
